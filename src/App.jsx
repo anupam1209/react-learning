@@ -40,12 +40,17 @@ const Menu = () => {
 
 const Pizza = ({ pizzaObject }) => {
   return (
-    <div className="pizza">
+    // here we conditionally set the class based on the property of the pizzaObject soldOut property
+    <div className={pizzaObject.soldOut ? "pizza sold-out" : "pizza"}>
       <img src={pizzaObject.photoName} alt={pizzaObject.name} />
       <div>
         <h3>{pizzaObject.name}</h3>
         <p>{pizzaObject.ingredients}</p>
-        <span>INR {pizzaObject.price * 10}</span>
+        {pizzaObject.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>INR {pizzaObject.price * 10}</span>
+        )}
       </div>
     </div>
   );
