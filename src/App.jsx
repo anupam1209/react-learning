@@ -22,11 +22,15 @@ const Menu = () => {
   return (
     <div className="menu">
       <h2>Our Menu</h2>
+      <p>
+        Authentic Italian cuisine. 6 creative dishes to choose from. All from
+        over stone ove, all organic, all delicious
+      </p>
       <ul className="pizzas">
         {pizzaData.map((pizza) => (
           //passing the whole object here
-          <li>
-            <Pizza pizzaObject={pizza} key={pizza.name} />
+          <li key={pizza.name}>
+            <Pizza pizzaObject={pizza} />
           </li>
         ))}
       </ul>
@@ -34,14 +38,14 @@ const Menu = () => {
   );
 };
 
-const Pizza = (props) => {
+const Pizza = ({ pizzaObject }) => {
   return (
     <div className="pizza">
-      <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
+      <img src={pizzaObject.photoName} alt={pizzaObject.name} />
       <div>
-        <h3>{props.pizzaObject.name}</h3>
-        <p>{props.pizzaObject.ingredients}</p>
-        <span>INR {props.pizzaObject.price * 10}</span>
+        <h3>{pizzaObject.name}</h3>
+        <p>{pizzaObject.ingredients}</p>
+        <span>INR {pizzaObject.price * 10}</span>
       </div>
     </div>
   );
