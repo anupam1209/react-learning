@@ -50,7 +50,9 @@ const Pizza = (props) => {
 const Footer = () => {
   return (
     <div>
-      <footer className="footer">this is footer</footer>
+      <footer className="footer">
+        <button className="btn">Order</button>
+      </footer>
     </div>
   );
 };
